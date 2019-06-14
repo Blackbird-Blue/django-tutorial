@@ -4,12 +4,14 @@
   </head>
 
   <body>
-    <h1>A Blog</h1>
-    <h2>Blogging with Django</h2>
-    <p>Hey there! I'm Sardines.</p>
-    <p>This is my blog. I'm learning to make websites using Django!</p>
-    <p>Soon, a page like this will be on the actual internet. I hope to learn how to
-      send personalized content, receive input back from the user, and store it in
-      a database. I'm very excited. Stay tuned!</p>
+    <h1>Blogging with Django</h1>
+
+    {% for post in posts %}
+      <div>
+        <h2>{{post.title}}</h2>
+        <em>{{post.published_date}}</em>
+        <p>{{post.text | linebreaksbr}}</p>
+      </div>
+    {% endfor %}
   </body>
 </html>
