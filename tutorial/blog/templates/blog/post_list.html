@@ -1,17 +1,11 @@
-<html>
-  <head>
-    <title>Blag</title>
-  </head>
+{% extends 'blog/base.html' %}
 
-  <body>
-    <h1>Blogging with Django</h1>
-
-    {% for post in posts %}
-      <div>
-        <h2>{{post.title}}</h2>
-        <em>{{post.published_date}}</em>
-        <p>{{post.text | linebreaksbr}}</p>
-      </div>
-    {% endfor %}
-  </body>
-</html>
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <h2 class="post_title">{{post.title}}</h2>
+      <p class="post_date">{{post.published_date}}</p>
+      <p class="post_text">{{post.text | linebreaksbr}}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
